@@ -1,6 +1,8 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+
+
 set showcmd
 set history=500
 set laststatus=2 " always show status line
@@ -60,9 +62,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" show list of previous yanked text
-nnoremap <silent> <F3> :YRShow<cr>
-inoremap <silent> <F3> <ESC>:YRShow<cr>
 
 set undolevels=1000		" use many muchos levels of undoness 
 set title							"  change the terminal's title
@@ -74,12 +73,19 @@ colorscheme molokai
 " regular copy and paste on insert mode and visual mode
 imap <C-c> <Esc>"+y 
 imap <C-v> <Esc>"+gP 
-""nnoremap <C-c> <Esc>"+y 
-""nnoremap <C-v> <Esc>"+gP 
 
 " Ack
+set grepprg=ack
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
 
 " Settings for ruby 
 map <leader>sr  :set syntax=ruby   ai et ts=2 sw=2 tw=0<CR>
 
+autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+
+" Start where I left off
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g'\"" | endif
+endif
