@@ -1,8 +1,6 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-
-
 set showcmd
 set history=500
 set laststatus=2 " always show status line

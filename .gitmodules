@@ -25,3 +25,30 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
 	url = https://github.com/vim-scripts/surround.vim.git
+[submodule "vim/bundle/fugitive"]
+	path = vim/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "vim/bundle/autoclose"]
+	path = vim/bundle/autoclose
+	url = https://github.com/Townk/vim-autoclose.git
+[submodule "vim/bundle/javaScriptLint"]
+	path = vim/bundle/javaScriptLint
+	url = https://github.com/smith/javaScriptLint.vim.git
+[submodule "vim/bundle/NERD_tree"]
+	path = vim/bundle/NERD_tree
+	url = https://github.com/vim-scripts/The-NERD-tree.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vim/bundle/snipMate"]
+	path = vim/bundle/snipMate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim/bundle/rails"]
+	path = vim/bundle/rails
+	url = https://github.com/tpope/vim-rails.git
+[submodule "vim/bundle/tcomment"]
+	path = vim/bundle/tcomment
+	url = https://github.com/vim-scripts/tComment.git
+[submodule "vim/bundle/surround"]
+	path = vim/bundle/surround
+	url = https://github.com/vim-scripts/surround.vim.git
