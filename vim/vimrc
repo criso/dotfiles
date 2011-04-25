@@ -64,9 +64,7 @@ nnoremap <C-l> <C-w>l
 set undolevels=1000		" use many muchos levels of undoness 
 set title							"  change the terminal's title
 
-
 colorscheme molokai
-
 
 " regular copy and paste on insert mode and visual mode
 imap <C-c> <Esc>"+y 
@@ -79,6 +77,9 @@ let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 " Settings for ruby 
 map <leader>sr  :set syntax=ruby   ai et ts=2 sw=2 tw=0<CR>
+map <leader>sj  :set ai et ts=4 sw=4 tw=0<CR>
+
+map <leader>sl  :colorscheme solarized<CR>:set background=light<CR>
 
 autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
 
