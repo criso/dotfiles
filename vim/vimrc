@@ -1,5 +1,10 @@
+set nocompatible
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+
+filetype plugin on
+filetype indent on
 
 set showcmd
 set history=500
@@ -9,6 +14,12 @@ set gfn=Envy\ Code\ R\ Normal\ 11
 set shiftwidth=4
 set tabstop=4
 set noexpandtab
+
+set backspace=indent,eol,start
+
+" Ack
+set grepprg=ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 syn on
 set mouse=a
@@ -26,8 +37,6 @@ set directory=~/vim_backup
 
 
 
-filetype plugin on
-filetype indent on
 
 "zz centers the screen 
 "on incsearch center the screen
@@ -38,20 +47,16 @@ nmap k gk
 nmap j gj
 
 
-"jquery syntax 
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 let mapleader = ","
 " insert comment
 map <Leader>c :TComment<CR>
 
-" open NerdTree with f2
+" open NerdTree with ,n
 map <Leader>n :NERDTreeToggle<CR>
 
+map <Leader>t :TagbarToggle<CR>
 
-" Edit another file in the same directory as the current file
-" uses expression to extract path from current file's path
-map <Leader>s :vsplit <C-R>=expand("%:p:h") . '/'<CR>
 imap <C-l> <Space>=><Space>
 
 " Better movement around window splits
@@ -70,9 +75,6 @@ colorscheme molokai
 imap <C-c> <Esc>"+y 
 imap <C-v> <Esc>"+gP 
 
-" Ack
-set grepprg=ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
 
 " Settings for ruby 
@@ -83,10 +85,54 @@ map <leader>sj  :set ai et ts=4 sw=4 tw=0<CR>
 
 map <leader>sl  :colorscheme solarized<CR>:set background=light<CR>
 
-autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+autocmd FileType ruby,eruby,yaml set noet sw=2 sts=2 
 
-" Start where I left off
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_disabled_filetypes = ['scss']
+
+" Setup supertab to be a bit smarter about it's usage
+let g:SuperTabLongestEnhanced = 1
+
+
+" Sort CSS properties between the braces alphabetically
+:command! SortCSS :g#\({\n\)\@<=#.,/}/sort | :noh
+
+" Tell snipmate to pull it's snippets from a custom directory
+let g:snippets_dir = $HOME.'/.vim/snippets/'
+
+" Closes the window showing the location list from sytastic errors
+map <silent><leader>lc :lcl<cr>
+
+" File type utility settings
+" -----------------------------------------------------------------------------
+" Sort CSS selectors and allow for browser refresh
+function! s:setCSS()
+  call s:setBrowserEnv()
+endfunction
+
+
+" File handling and settings
+" -----------------------------------------------------------------------------
+
 if has("autocmd")
+	"jquery syntax 
+	au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+
+	" Start where I left off
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
     \| exe "normal! g'\"" | endif
+
+
+	" Reload .vimrc after it or vimrc.local been saved
+	  au! BufWritePost .vimrc source %
+	  au! BufWritePost .vimrc.local source ~/.vimrc
+
+	" Reload all snippets when creating new ones.
+	  au! BufWritePost *.snippets call ReloadAllSnippets()
+
+endif
+
+if $TERM == 'xterm-color' && &t_Co == 8
+  set t_Co=16
 endif
