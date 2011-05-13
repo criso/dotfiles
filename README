@@ -16,8 +16,8 @@ Switch to the `~/dotifles` directory, and fetch submodules:
 
 For javascript IDE-like HAWTNESS
 
-#install exuberant-ctags
-#Clone DoctorJS from github: git clone https://github.com/mozilla/doctorjs.git
-#Go inside DoctorJS dir and make install 
+- install exuberant-ctags
+- Clone DoctorJS from github: git clone https://github.com/mozilla/doctorjs.git
+- #Go inside DoctorJS dir and make install 
 
 
