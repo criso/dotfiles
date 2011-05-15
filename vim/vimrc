@@ -38,6 +38,7 @@ set directory=~/vim_backup
 
 
 
+
 "zz centers the screen 
 "on incsearch center the screen
 nmap n nzz
@@ -47,10 +48,14 @@ nmap k gk
 nmap j gj
 
 
+" menu hawtness - :b now opens buffer menu
+set wildchar=<Tab> wildmenu wildmode=full
 
 let mapleader = ","
 " insert comment
 map <Leader>c :TComment<CR>
+
+map <Leader>b :b<Space>
 
 " open NerdTree with ,n
 map <Leader>n :NERDTreeToggle<CR>
@@ -89,7 +94,7 @@ autocmd FileType ruby,eruby,yaml set noet sw=2 sts=2
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
-let g:syntastic_disabled_filetypes = ['scss','erb']
+let g:syntastic_disabled_filetypes = ['scss','eruby']
 
 " Setup supertab to be a bit smarter about it's usage
 let g:SuperTabLongestEnhanced = 1
