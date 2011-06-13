@@ -83,14 +83,37 @@ imap <C-v> <Esc>"+gP
 
 
 " Settings for ruby 
-" map <leader>sr  :set syntax=ruby   ai et ts=2 sw=2 tw=0<CR>
+" map <leader>sr  :set syntax=ruby	 ai et ts=2 sw=2 tw=0<CR>
 map <leader>sr :set noet ci pi sts=0 sw=2 ts=2<CR>
 
-map <leader>sj  :set ai et ts=4 sw=4 tw=0<CR>
 
-map <leader>sl  :colorscheme solarized<CR>:set background=light<CR>
+set list listchars=tab:»·,trail:·
 
-autocmd FileType ruby,eruby,yaml set noet sw=2 sts=2 
+map <leader>sj	:set ai et ts=4 sw=4 tw=0<CR>
+
+map <leader>sl	:colorscheme solarized<CR>:set background=light<CR>
+
+" Convert spaces to tabs
+map <leader>st :set noet|retab!<CR>
+
+" Convert tabs to spaces
+map <leader>ts :set et|retab<CR>
+
+" ================
+" Ruby stuff
+" ================
+
+augroup myfiletypes
+  " Clear old autocmds in group
+  autocmd!
+  " autoindent with two spaces, always expand tabs
+  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
+augroup END
+" ================
+
+
+set nolazyredraw 
+
 
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=1
@@ -126,7 +149,7 @@ if has("autocmd")
 
 	" Start where I left off
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
+	\| exe "normal! g'\"" | endif
 
 
 	" Reload .vimrc after it or vimrc.local been saved
