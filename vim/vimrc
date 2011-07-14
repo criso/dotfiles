@@ -87,7 +87,7 @@ imap <C-v> <Esc>"+gP
 map <leader>sr :set noet ci pi sts=0 sw=2 ts=2<CR>
 
 
-set list listchars=tab:»·,trail:·
+set listchars=tab:»·,trail:·
 
 map <leader>sj	:set ai et ts=4 sw=4 tw=0<CR>
 
