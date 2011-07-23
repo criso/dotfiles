@@ -73,3 +73,9 @@
 [submodule "vim/bundle/vim-jade"]
 	path = vim/bundle/vim-jade
 	url = https://github.com/digitaltoad/vim-jade.git
+[submodule "vim/bundle/jshint"]
+	path = vim/bundle/jshint
+	url = https://github.com/walm/jshint.vim.git
+[submodule "vim/bundle/vim-markdown"]
+	path = vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git

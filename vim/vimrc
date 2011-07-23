@@ -99,6 +99,12 @@ map <leader>st :set noet|retab!<CR>
 " Convert tabs to spaces
 map <leader>ts :set et|retab<CR>
 
+map <leader>no :set tabstop=2 shiftwidth=2 expandtab<CR>
+
+" highlight 80 
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%86v.\+/
+
 " ================
 " Ruby stuff
 " ================
@@ -115,8 +121,8 @@ augroup END
 set nolazyredraw 
 
 
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_enable_signs=1 "Show sidebar signs
+let g:syntastic_auto_loc_list=1 "auto open errors window
 let g:syntastic_disabled_filetypes = ['scss','eruby']
 
 " Setup supertab to be a bit smarter about it's usage
@@ -144,8 +150,6 @@ endfunction
 " -----------------------------------------------------------------------------
 
 if has("autocmd")
-	"jquery syntax 
-	au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 
 	" Start where I left off
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
