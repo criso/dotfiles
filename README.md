@@ -20,4 +20,5 @@ For javascript IDE-like HAWTNESS
 - Clone DoctorJS from github: git clone https://github.com/mozilla/doctorjs.git
 - #Go inside DoctorJS dir and make install 
 
-
+To update the submodules
+	git submodule foreach git pull origin master
