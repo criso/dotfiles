@@ -81,15 +81,10 @@ imap <C-c> <Esc>"+y
 imap <C-v> <Esc>"+gP 
 
 
-
-" Settings for ruby 
-" map <leader>sr  :set syntax=ruby	 ai et ts=2 sw=2 tw=0<CR>
-map <leader>sr :set noet ci pi sts=0 sw=2 ts=2<CR>
-
-
 set listchars=tab:».,trail:·
 
-map <leader>sj	:set ai et ts=4 sw=4 tw=0<CR>
+" no tabs - w spaces per tab 
+map <leader>sj :set et sw=2 ts=2<CR>
 
 map <leader>sl	:colorscheme solarized<CR>:set background=light<CR>
 
