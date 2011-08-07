@@ -96,6 +96,14 @@ map <leader>ts :set et|retab<CR>
 
 map <leader>no :set tabstop=2 shiftwidth=2 expandtab<CR>
 
+" Tabularize
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+
+
+
 " highlight 80 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%86v.\+/
