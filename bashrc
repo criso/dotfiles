@@ -71,11 +71,6 @@ fi
 #######################################
 # Exports 
 #######################################
-JAVA_HOME=/usr/lib/jvm/java-6-sun
-export JAVA_HOME
-
-PATH=$PATH:$JAVA_HOME/bin
-export PATH
-
+export PATH=$HOME/local/node/bin:$HOME/local/bin:$PATH
+export NODE_PATH=$HOME/local/node:$HOME/local/node/lib/node_modules
 export EDITOR=vim
-export PATH=$HOME/local/bin:$PATH
