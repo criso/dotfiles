@@ -88,3 +88,6 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "vim/bundle/vim-taglist-plus"]
+	path = vim/bundle/vim-taglist-plus
+	url = https://github.com/int3/vim-taglist-plus.git
