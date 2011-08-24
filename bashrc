@@ -1,6 +1,3 @@
-source ~/.git-completion.sh
-
-
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
@@ -71,6 +68,7 @@ fi
 #######################################
 # Exports 
 #######################################
-export PATH=$HOME/local/node/bin:$HOME/local/bin:$PATH
-export NODE_PATH=$HOME/local/node:$HOME/local/node/lib/node_modules
+export PATH=$HOME/local/node/bin:$PATH
+export NODE_PATH=$HOME/local/node:$HOME/local/node/lib/node_modules:/usr/local/lib/jsctags
+# export NODE_PATH=/usr/local/lib/jsctags/:$NODE_PATH for doctorjs
 export EDITOR=vim
