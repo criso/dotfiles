@@ -46,9 +46,9 @@ alias ..='cd ..'
 # other
 alias vi='vim'
 alias e='vim'
-alias chrome='chromiumi-browser'
+alias chrome='chromium-browser'
 alias pdf='mupdf'
-alias ack='ack-grep'
+alias -g ack='ack-grep -ia'
 
 #
 # History
