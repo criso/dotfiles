@@ -48,6 +48,7 @@ alias vi='vim'
 alias e='vim'
 alias chrome='chromiumi-browser'
 alias pdf='mupdf'
+alias ack='ack-grep'
 
 #
 # History
