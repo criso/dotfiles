@@ -1,6 +1,5 @@
 " Stop rails.vim from fucking with my expandtab settings.
 " I don't care if everyone else likes spaces, TABs all the way baby!
-autocmd User Rails      set noexpandtab
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start 

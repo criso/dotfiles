@@ -15,7 +15,7 @@ autoload -U complist
 
 
 # Set input mode to vi
-set -o vi
+set  -o vi
 
 # Bind <C-r> to history search
 bindkey "^r" history-incremental-search-backward
