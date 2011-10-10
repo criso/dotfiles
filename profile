@@ -1,21 +1,22 @@
 #!/bin/sh
-##
-# cloudhead .profile
-#
 
 #
 # ENV
 #
 export PATH=/usr/local/git/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export CLICOLOR="true"
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-export EDITOR="vim"
-export LANG="en_US.UTF-8"
+
+############
+#  EDITOR  #
+############
+export EDITOR="vim -p" # -p = 1 tab/file
+alias vi="vim -p"
+alias svi="sudo $EDITOR"
+
 
 export PATH=$HOME/local/node/bin:/usr/local/bin:/usr/local/sbin:$PATH
 export NODE_PATH=$HOME/local/node:$HOME/local/node/lib/node_modules
 
-if [[ -z "$DISPLAY" ]] && [[ ! -a "/tmp/.X11-unix/X0" ]]; then
-  startx
-  logout
-fi
+
+# rvm 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
