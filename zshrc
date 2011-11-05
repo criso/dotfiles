@@ -1,6 +1,24 @@
 #!/bin/zsh
 
 source ~/.profile
+source /etc/profile.d/autojump.zsh
+
+setopt NO_BG_NICE
+setopt NO_HUP
+setopt NO_LIST_BEEP
+setopt LOCAL_OPTIONS
+setopt LOCAL_TRAPS
+setopt EXTENDED_HISTORY
+setopt PROMPT_SUBST
+setopt CORRECT
+setopt COMPLETE_IN_WORD
+setopt IGNORE_EOF
+setopt AUTO_CD
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_REDUCE_BLANKS
+setopt EXTENDEDGLOB
+
 
 #
 # Includes
@@ -8,7 +26,11 @@ source ~/.profile
 # autoload colors && colors
 autoload -Uz vcs_info
 autoload -U compinit && compinit
-# autoload -U complist
+autoload -U colors
+colors
+
+zmodload -a autocomplete
+zmodload -a complist
 
 # Set input mode to emacs 
 bindkey -e
@@ -19,11 +41,21 @@ bindkey "^r" history-incremental-search-backward
 ############
 #  COLORS  #
 ############
-# allows e.g. $fg[blue] and $bg[green]
-autoload -Uz colors && colors
-zmodload -i zsh/complist # colorful listings
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
+zstyle -e ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle -e ':completion:*' list-colors 'reply=( "=(#b)(*$PREFIX)(?)*=00=$color[green]=$color[bold]" )'
+
+# highlights='${PREFIX:+=(#bi)($PREFIX:t)(?)*==$color[red]=$color[green];$color[bold]}':${(s.:.)LS_COLORS}}
+# 
+# zstyle -e ':completion:*' list-colors \
+# 	'reply=( "'$highlights'" )'
+
+
+# zstyle -e ':completion:*:*:*:*:hosts' list-colors '=*=30;41'
+# zstyle -e ':completion:*:*:*:*:users' list-colors '=*=$color[green]=$color[red]'
+
+#<-- For when you get sick and tired of all the colors and just want them to go away!
+# zstyle ':completion:*' list-colors '' 
 
 #
 # Aliases
@@ -63,20 +95,6 @@ HISTSIZE=5000
 SAVEHIST=1000
 REPORTTIME=10
 
-setopt NO_BG_NICE
-setopt NO_HUP
-setopt NO_LIST_BEEP
-setopt LOCAL_OPTIONS
-setopt LOCAL_TRAPS
-setopt EXTENDED_HISTORY
-setopt PROMPT_SUBST
-setopt CORRECT
-setopt COMPLETE_IN_WORD
-setopt IGNORE_EOF
-setopt AUTO_CD
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_REDUCE_BLANKS
 
 #
 # ANSI Color Codes
