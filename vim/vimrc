@@ -9,7 +9,8 @@ filetype indent on
 set showcmd
 set history=500
 set laststatus=2 " always show status line
-set gfn=Envy\ Code\ R\ Normal\ 11
+" set gfn=Envy\ Code\ R\ Normal\ 11
+set gfn=Inconsolata\ 12
 
 set shiftwidth=4
 set tabstop=4
@@ -43,10 +44,10 @@ set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
 "on incsearch center the screen
 nmap n nzz
 nmap N Nzz
+
 "navigation on wrapped lines
 nmap k gk
 nmap j gj
-
 
 " menu hawtness - :b now opens buffer menu
 set wildchar=<Tab> wildmenu wildmode=full
@@ -81,6 +82,8 @@ imap <C-c> <Esc>"+y
 imap <C-v> <Esc>"+gP 
 
 
+inoremap jk <Esc>
+
 set listchars=tab:».,trail:·
 
 " no tabs - w spaces per tab 
@@ -107,17 +110,6 @@ vmap <Leader>a: :Tabularize /:\zs<CR>
 " highlight 80 
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%86v.\+/
-" ================
-" Ruby stuff
-" ================
-
-augroup myfiletypes
-  " Clear old autocmds in group
-  autocmd!
-  " autoindent with two spaces, always expand tabs
-  autocmd FileType ruby,eruby,yaml set ai sw=2 sts=2 et
-augroup END
-" ================
 
 
 set nolazyredraw 
@@ -156,7 +148,6 @@ if has("autocmd")
 	" Start where I left off
   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
 	\| exe "normal! g'\"" | endif
-
 
 	" Reload .vimrc after it or vimrc.local been saved
 	  au! BufWritePost .vimrc source %
