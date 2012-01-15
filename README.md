@@ -1,6 +1,6 @@
 Installation:
 
-    git clone git://github.com:criso/dotfiles.git ~/dotfiles
+    git://github.com/criso/dotfiles.git
 
 Create symlinks:
 
