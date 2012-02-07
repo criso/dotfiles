@@ -122,9 +122,10 @@ let g:syntastic_disabled_filetypes = ['scss','eruby']
 " Setup supertab to be a bit smarter about it's usage
 let g:SuperTabLongestEnhanced = 1
 
+"powerline plugin
+" let g:Powerline_symbols = 'fancy'"
 
-" Sort CSS properties between the braces alphabetically
-:command! SortCSS :g#\({\n\)\@<=#.,/}/sort | :noh
+
 
 " Tell snipmate to pull it's snippets from a custom directory
 let g:snippets_dir = $HOME.'/.vim/snippets/'

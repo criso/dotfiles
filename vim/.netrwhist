@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/home/criso/projects/nodejs/github/node-growl'
 let g:netrw_dirhist_2='/home/criso/projects/nodejs/github-read/node-dev'
 let g:netrw_dirhist_3='/home/criso/projects/nodejs/graphapi/test/vows'
 let g:netrw_dirhist_4='/home/criso/src/rails/cowbook/public/javascripts'
+let g:netrw_dirhist_5='/home/criso/Development/trunk/web/beakley/src/main/webapp/js'
