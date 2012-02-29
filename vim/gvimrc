@@ -1,21 +1,10 @@
-" Stop rails.vim from fucking with my expandtab settings.
-" I don't care if everyone else likes spaces, TABs all the way baby!
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start 
-
-set smarttab
-set shiftround
-
-" Set the tag file search order
-set tags=./tags;
 
 "  ----- MOLOKAI --------- settings
 "let s:molokai_original=1
 hi IncSearch guibg=cyan guifg=#000 gui=bold
 hi Search guibg=cyan guifg=#000 gui=bold
 hi Visual guibg=cyan guifg=#000 gui=bold
-hi Label gui=bold,underline
+" hi Label gui=bold,underline
+hi Label gui=bold
 hi Comment guifg=#75715E
 set cursorline
-

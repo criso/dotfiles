@@ -15,8 +15,13 @@ set gfn=Inconsolata\ 12
 set shiftwidth=4
 set tabstop=4
 set noexpandtab
+set smarttab
+set shiftround
 
 set backspace=indent,eol,start
+
+" Set the tag file search order
+set tags=./tags;
 
 " Ack
 set grepprg=ack
@@ -37,7 +42,7 @@ set backupdir=~/vim_backup
 set directory=~/vim_backup
 
 " Let's see some useful info in the status line
-set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
+" set statusline=%F\ %m%r%w%y\ %=(%L\ loc)\ [#\%03.3b\ 0x\%02.2B]\ \ %l,%v\ \ %P
  
 
 "zz centers the screen 
@@ -75,7 +80,6 @@ nnoremap <C-l> <C-w>l
 set undolevels=1000		" use many muchos levels of undoness 
 set title							"  change the terminal's title
 
-colorscheme molokai
 
 " regular copy and paste on insert mode and visual mode
 imap <C-c> <Esc>"+y 
@@ -160,5 +164,12 @@ if has("autocmd")
 endif
 
 if $TERM == 'xterm-color' && &t_Co == 8
-  set t_Co=16
+  set t_Co=256
 endif
+
+
+set t_Co=256
+colorscheme molokai
+hi Label cterm=bold,underline
+hi Normal ctermfg=256
+hi String ctermfg=185
