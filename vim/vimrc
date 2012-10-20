@@ -10,7 +10,8 @@ set showcmd
 set history=500
 set laststatus=2 " always show status line
 " set gfn=Envy\ Code\ R\ Normal\ 11
-set gfn=Inconsolata\ 12
+" set gfn=Inconsolata:h14
+set gfn=Monaco:h12
 
 set shiftwidth=4
 set tabstop=4
@@ -25,7 +26,7 @@ set tags=./tags;
 
 " Ack
 set grepprg=ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 
 syn on
 set mouse=a
@@ -168,8 +169,36 @@ if $TERM == 'xterm-color' && &t_Co == 8
 endif
 
 
-set t_Co=256
-colorscheme molokai
-hi Label cterm=bold,underline
-hi Normal ctermfg=256
-hi String ctermfg=185
+" solarized colorscheme
+" ------------
+set background=light
+colorscheme solarized
+
+
+
+"CTRLP plugin
+" =============
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.svn,*.gem,*.class,*.git	 " MacOSX/Linux
+
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+map <Leader>f :CtrlP<CR>
+
+
+" use :w!! to write to a file using sudo if you forgot to 'sudo vim file'
+" (it will prompt for sudo password when writing)
+cmap w!! %!sudo tee > /dev/null %
+
+if has("gui_running")
+  if has("autocmd")
+	" Automatically resize splits when resizing MacVim window
+	autocmd VimResized * wincmd =
+  endif
+endif
+
+
+" set t_Co=256
+" colorscheme molokai
+" hi Label cterm=bold,underline
+" hi Normal ctermfg=256
+" hi String ctermfg=185
