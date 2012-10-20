@@ -103,3 +103,6 @@
 [submodule "vim/bundle/css-colors"]
 	path = vim/bundle/css-colors
 	url = https://github.com/ap/vim-css-color.git
+[submodule "vim/bundle/vim-ack"]
+	path = vim/bundle/vim-ack
+	url = https://github.com/mileszs/ack.vim.git
