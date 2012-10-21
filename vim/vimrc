@@ -11,7 +11,8 @@ set history=500
 set laststatus=2 " always show status line
 " set gfn=Envy\ Code\ R\ Normal\ 11
 " set gfn=Inconsolata:h14
-set gfn=Monaco:h12
+set gfn=Inconsolata\ Medium\ 12
+" set gfn=Monaco:h12
 
 set shiftwidth=4
 set tabstop=4
@@ -197,7 +198,7 @@ if has("gui_running")
 endif
 
 
-" set t_Co=256
+set t_Co=256
 " colorscheme molokai
 " hi Label cterm=bold,underline
 " hi Normal ctermfg=256
