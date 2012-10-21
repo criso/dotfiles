@@ -23,7 +23,7 @@ set shiftround
 set backspace=indent,eol,start
 
 " Set the tag file search order
-set tags=./tags;
+" set tags=./tags;
 
 " Ack
 set grepprg=ack
@@ -68,7 +68,7 @@ map <Leader>b :b<Space>
 " open NerdTree with ,n
 map <Leader>n :NERDTreeToggle<CR>
 
-map <Leader>t :TagbarToggle<CR>
+" map <Leader>t :TagbarToggle<CR>
 
 imap <C-l> <Space>=><Space>
 
