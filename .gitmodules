@@ -118,3 +118,6 @@
 [submodule "vim/bundle/ack-vim"]
 	path = vim/bundle/ack-vim
 	url = https://github.com/mileszs/ack.vim.git
+[submodule "zsh-completions"]
+	path = zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git

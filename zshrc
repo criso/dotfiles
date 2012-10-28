@@ -3,6 +3,9 @@
 source ~/.profile
 source /etc/profile.d/autojump.zsh
 
+fpath=(~/local/dotfiles/zsh-completions/src $fpath)
+
+
 setopt NO_BG_NICE
 setopt NO_HUP
 setopt NO_LIST_BEEP
@@ -149,4 +152,6 @@ preexec () {
 #
 PROMPT="%{$GREY%}%n%{$CLEAR%} %~ "'${vcs_info_msg_0_}${cursor}'" %{$CLEAR%}"
 RPROMPT='%{$BLUE%}%w %T %M%{$CLEAR%}'
+
+
 
