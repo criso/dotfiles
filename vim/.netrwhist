@@ -1,9 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/criso/projects/nodejs/github/node-growl'
-let g:netrw_dirhist_2='/home/criso/projects/nodejs/github-read/node-dev'
-let g:netrw_dirhist_3='/home/criso/projects/nodejs/graphapi/test/vows'
-let g:netrw_dirhist_4='/home/criso/src/rails/cowbook/public/javascripts'
-let g:netrw_dirhist_5='/home/criso/Development/trunk/web/beakley/src/main/webapp/js'
-let g:netrw_dirhist_6='/Users/criso/Library/Caches/IntelliJIdea11/tomcat/Unnamed_timesquare/conf'
-let g:netrw_dirhist_7='/Users/criso/Development/trunk/web/launchpad/src/test/watir/tests/launchpad/js-test-runners'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/criso/Development/trunk/web/beakley/src/main/webapp/js/src/launchpad/pages/.svn'
+let g:netrw_dirhist_2='/Users/criso/Development/trunk/web/beakley/src/main/webapp/js/tests/node_modules/grunt-jasmine-task/tasks/jasmine'
+let g:netrw_dirhist_3='/Users/criso/Development/trunk-bak/web/beakley/src/main/webapp/js/tests/ext/phantomjs'
+let g:netrw_dirhist_4='/Users/criso/Development/trunk/web/beakley/src/main/webapp/js/src/launchpad/pages/.svn'
