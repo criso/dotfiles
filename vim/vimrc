@@ -1,19 +1,18 @@
 set nocompatible
-
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
-filetype plugin on
-filetype indent on
-
+ 
+call pathogen#infect()
+syntax on
+filetype plugin indent on
+ 
 set showcmd
 set history=500
 set laststatus=2 " always show status line
 set undolevels=1000     " use many muchos levels of undoness 
 set title               " change the terminal's title
 
+
 set encoding=utf-8 nobomb
-" set gfn=Inconsolata:h14
+"set gfn=Inconsolata:h14
 " powerline with fancy symobls font
 set gfn=Inconsolata-dz\ for\ Powerline:h12
 " set gfn=Inconsolata\ Medium\ 12
@@ -37,160 +36,162 @@ set backupdir=~/vim_backup
 set directory=~/vim_backup
 set backspace=indent,eol,start
 set nolazyredraw 
-
-" PLUGINS
-" =======
-
-" Ack
-set grepprg=ack
-let g:ackprg="ack -H --nocolor --nogroup --column"
-
-" Syntastic
-let g:syntastic_enable_signs=1 "Show sidebar signs
-let g:syntastic_auto_loc_list=1 "auto open errors window
-let g:syntastic_disabled_filetypes = ['scss','eruby']
-let g:syntastic_javascript_jshint_conf = "~/.jshintrc"
-
-" SuperTab
-" Setup supertab to be a bit smarter about it's usage
-let g:SuperTabLongestEnhanced = 1
-
-" Powerline
-let g:Powerline_symbols = 'fancy'
-
-"CTRLP 
-" =============
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_match_window_bottom = 0 " Show at top of window
-let g:ctrlp_working_path_mode = 2 " Smart path mode
-let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
-let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_split_window = 1 " <CR> = New Tab
-
-
-
-" MAPPINGS
-" ========
-let mapleader = ","
-" insert comment
-map <Leader>c :TComment<CR>
-
-" menu hawtness - :b now opens buffer menu
-set wildchar=<Tab> wildmenu wildmode=full
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.svn,*.gem,*.class,*.git    " MacOSX/Linux
-map <Leader>b :b<Space>
-
-" open NerdTree with ,n
-map <Leader>n :NERDTreeToggle<CR>
-map <Leader>t :TagbarToggle<CR>
-
-imap <C-l> <Space>=><Space>
-
-" Search and replace word under cursor (,*)
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
-
-"on incsearch center the screen
-nmap n nzz
-nmap N Nzz
-
-"navigation on wrapped lines
-nmap k gk
-nmap j gj
-
-" Better movement around window splits
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" enable MAN page
-runtime ftplugin/man.vim
+" 
+ " enable MAN page
+" had to comment out `let $MANPAGER = ""` in `VIMRUNTIME/ftplugin/man.vim
+" for this to work properly on a mac
+source $VIMRUNTIME/ftplugin/man.vim
 nmap K :Man <cword><CR>
-
-" regular copy and paste on insert mode and visual mode
-imap <C-c> <Esc>"+y 
-imap <C-v> <Esc>"+gP 
-
-" no tabs - w spaces per tab 
-map <leader>sj :set et sw=2 ts=2<CR>
-map <leader>sk :set et sw=4 ts=4<CR>
-
-set listchars=tab:».,trail:·
-
-" Convert spaces to tabs
-map <leader>st :set noet|retab!<CR>
-
-" Convert tabs to spaces
-map <leader>ts :set et|retab<CR>
-
-map <leader>no :set tabstop=2 shiftwidth=2 expandtab<CR>
-
-" Tabularize
-nmap <Leader>a= :Tabularize /=<CR>
-vmap <Leader>a= :Tabularize /=<CR>
-nmap <Leader>a: :Tabularize /:\zs<CR>
-vmap <Leader>a: :Tabularize /:\zs<CR>
-
-" ctrl-p plugin
-map <Leader>f :CtrlP<CR>
-
-" Closes the window showing the location list from sytastic errors
-map <Leader>lc :lcl<CR>
-
-" Sudo write (,W)
-noremap <leader>W :w !sudo tee %<CR>
-
-" highlight 80 
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%86v.\+/
-
-
-
-
-" File handling and settings
-" -----------------------------------------------------------------------------
-
-if has("autocmd")
-    " Start where I left off
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g'\"" | endif
-
-    " Reload .vimrc after it or vimrc.local been saved
-      au! BufWritePost .vimrc source %
-      au! BufWritePost .vimrc.local source ~/.vimrc
-
-    " Reload all snippets when creating new ones.
-      au! BufWritePost *.snippets call ReloadAllSnippets()
-endif
-
-if $TERM == 'xterm-color' && &t_Co == 8
-  set t_Co=256
-endif
-
-" Use github flavored markdown by default
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
-
-
-" COLORS
-" ======
-set background=light
-colorscheme solarized
-
-set t_Co=256
-" colorscheme molokai
-" hi Label cterm=bold,underline
-" hi Normal ctermfg=256
-" hi String ctermfg=185
-"
-if has("gui_running")
-  if has("autocmd")
-    " Automatically resize splits when resizing MacVim window
-    autocmd VimResized * wincmd =
-  endif
-endif
-
-
-
+ 
+ " PLUGINS
+ " =======
+ 
+ " Ack
+ set grepprg=ack
+ let g:ackprg="ack -H --nocolor --nogroup --column"
+ 
+ " Syntastic
+ let g:syntastic_enable_signs=1 "Show sidebar signs
+ let g:syntastic_auto_loc_list=1 "auto open errors window
+ let g:syntastic_disabled_filetypes = ['scss','eruby']
+ let g:syntastic_javascript_jshint_conf = "~/.jshintrc"
+ 
+ " C prog
+ " =====
+ " Adding dirs for C compilation
+ let g:syntastic_c_include_dirs=['/usr/local/apr/include/apr-1', '/usr/local/apr-util-1']
+ 
+ " SuperTab
+ " Setup supertab to be a bit smarter about it's usage
+ let g:SuperTabLongestEnhanced = 1
+ 
+ " Powerline
+ " let g:Powerline_symbols = 'fancy'
+ 
+ "CTRLP 
+ " =============
+ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+ let g:ctrlp_match_window_bottom = 0 " Show at top of window
+ let g:ctrlp_working_path_mode = 2 " Smart path mode
+ let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
+ let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+ let g:ctrlp_split_window = 1 " <CR> = New Tab
+ 
+ 
+ 
+ " MAPPINGS
+ " ========
+ let mapleader = ","
+ " insert comment
+ map <Leader>c :TComment<CR>
+ 
+ " menu hawtness - :b now opens buffer menu
+ set wildchar=<Tab> wildmenu wildmode=full
+ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.svn,*.gem,*.class,*.git    " MacOSX/Linux
+ map <Leader>b :b<Space>
+ 
+ " open NerdTree with ,n
+ map <Leader>n :NERDTreeToggle<CR>
+ map <Leader>t :TagbarToggle<CR>
+ 
+ imap <C-l> <Space>=><Space>
+ 
+ " Search and replace word under cursor (,*)
+ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+ 
+ "on incsearch center the screen
+ nmap n nzz
+ nmap N Nzz
+ 
+ "navigation on wrapped lines
+ nmap k gk
+ nmap j gj
+ 
+ " Better movement around window splits
+ nnoremap <C-h> <C-w>h
+ nnoremap <C-j> <C-w>j
+ nnoremap <C-k> <C-w>k
+ nnoremap <C-l> <C-w>l
+ 
+ 
+ " regular copy and paste on insert mode and visual mode
+ imap <C-c> <Esc>"+y 
+ imap <C-v> <Esc>"+gP 
+ 
+ " no tabs - w spaces per tab 
+ map <leader>sj :set et sw=2 ts=2<CR>
+ map <leader>sk :set et sw=4 ts=4<CR>
+ 
+ set listchars=tab:».,trail:·
+ 
+ " Convert spaces to tabs
+ map <leader>st :set noet|retab!<CR>
+ 
+ " Convert tabs to spaces
+ map <leader>ts :set et|retab<CR>
+ 
+ map <leader>no :set tabstop=2 shiftwidth=2 expandtab<CR>
+ 
+ " Tabularize
+ nmap <Leader>a= :Tabularize /=<CR>
+ vmap <Leader>a= :Tabularize /=<CR>
+ nmap <Leader>a: :Tabularize /:\zs<CR>
+ vmap <Leader>a: :Tabularize /:\zs<CR>
+ 
+ " ctrl-p plugin
+ map <Leader>f :CtrlP<CR>
+ 
+ " Closes the window showing the location list from sytastic errors
+ map <Leader>lc :lcl<CR>
+ 
+ " Sudo write (,W)
+ noremap <leader>W :w !sudo tee %<CR>
+ 
+ " highlight 80 
+ highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+ match OverLength /\%86v.\+/
+ 
+ " File handling and settings
+ " ---------------------------
+ 
+ if has("autocmd")
+     " Start where I left off
+   au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+     \| exe "normal! g'\"" | endif
+ 
+     " Reload .vimrc after it or vimrc.local been saved
+       au! BufWritePost .vimrc source %
+       au! BufWritePost .vimrc.local source ~/.vimrc
+ 
+     " Reload all snippets when creating new ones.
+       au! BufWritePost *.snippets call ReloadAllSnippets()
+ endif
+ 
+ if $TERM == 'xterm-color' && &t_Co == 8
+   set t_Co=256
+ endif
+ 
+ " Use github flavored markdown by default
+ augroup markdown
+     au!
+     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+ augroup END
+ 
+ 
+ " COLORS
+ " ======
+ "set background=light
+ "colorscheme solarized
+ 
+ "set t_Co=256
+ " colorscheme molokai
+ " hi Label cterm=bold,underline
+ " hi Normal ctermfg=256
+ " hi String ctermfg=185
+ "
+ if has("gui_running")
+   if has("autocmd")
+     " Automatically resize splits when resizing MacVim window
+     autocmd VimResized * wincmd =
+   endif
+ endif
