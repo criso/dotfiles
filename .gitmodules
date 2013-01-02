@@ -139,3 +139,6 @@
 [submodule "vim/vim-pathogen"]
 	path = vim/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim/bundle/vim-colors-github"]
+	path = vim/bundle/vim-colors-github
+	url = https://github.com/ricardovaleriano/vim-github-theme.git

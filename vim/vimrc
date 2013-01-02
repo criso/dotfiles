@@ -15,6 +15,8 @@ set encoding=utf-8 nobomb
 "set gfn=Inconsolata:h14
 " powerline with fancy symobls font
 set gfn=Inconsolata-dz\ for\ Powerline:h12
+" // font that  allows bold
+set gfn=Menlo\ Regular:h12
 " set gfn=Inconsolata\ Medium\ 12
 " set gfn=Monaco:h12
 
@@ -60,22 +62,21 @@ nmap K :Man <cword><CR>
  " =====
  " Adding dirs for C compilation
  let g:syntastic_c_include_dirs=['/usr/local/apr/include/apr-1', '/usr/local/apr-util-1']
+
  
  " SuperTab
  " Setup supertab to be a bit smarter about it's usage
  let g:SuperTabLongestEnhanced = 1
  
  " Powerline
- " let g:Powerline_symbols = 'fancy'
+ let g:Powerline_symbols = 'fancy'
  
  "CTRLP 
  " =============
  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
- let g:ctrlp_match_window_bottom = 0 " Show at top of window
  let g:ctrlp_working_path_mode = 2 " Smart path mode
  let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
  let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
- let g:ctrlp_split_window = 1 " <CR> = New Tab
  
  
  
@@ -180,6 +181,17 @@ nmap K :Man <cword><CR>
  
  " COLORS
  " ======
+" Alteration to github scheme 
+colorscheme github
+hi Normal guibg=MacTextBackgroundColor
+hi CursorLine   guibg=#F1F5FA
+" hi Search       guibg=reverse
+hi IncSearch    gui=reverse
+hi Pmenu        guibg=LightSteelBlue1
+hi PmenuSbar    guibg=Grey
+hi PmenuSel     guifg=White guibg=SkyBlue4
+hi PmenuThumb   gui=reverse
+
  "set background=light
  "colorscheme solarized
  
