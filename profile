@@ -9,7 +9,7 @@ export CLICOLOR="true"
 ############
 #  EDITOR  #
 ############
-export EDITOR="vim -p" # -p = 1 tab/file
+export EDITOR="gvim -f" # -p = 1 tab/file
 alias vi="vim -p"
 alias svi="sudo $EDITOR"
 

@@ -1,10 +1,10 @@
 
 "  ----- MOLOKAI --------- settings
-"let s:molokai_original=1
-" hi IncSearch guibg=cyan guifg=#000 gui=bold
-" hi Search guibg=cyan guifg=#000 gui=bold
-" hi Visual guibg=cyan guifg=#000 gui=bold
-" " hi Label gui=bold,underline
-" hi Label gui=bold
-" hi Comment guifg=#75715E
+let s:molokai_original=1
+hi IncSearch guibg=cyan guifg=#000 gui=bold
+hi Search guibg=cyan guifg=#000 gui=bold
+hi Visual guibg=cyan guifg=#000 gui=bold
+" hi Label gui=bold,underline
+hi Label gui=bold
+hi Comment guifg=#75715E
 set cursorline
