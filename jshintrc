@@ -22,6 +22,7 @@
 	"predef"     : [
         // FOR TSQ
         "TSQ",
+    "sinon",
         "TSQDebug",
         "Microsoft",
         "FB",

@@ -14,9 +14,10 @@ set title               " change the terminal's title
 set encoding=utf-8 nobomb
 "set gfn=Inconsolata:h14
 " powerline with fancy symobls font
-set gfn=Inconsolata-dz\ for\ Powerline:h12
+" set gfn=Inconsolata-dz\ for\ Powerline:h12
+set gfn=Source\ Code\ Pro\ for\ Powerline:h13
 " // font that  allows bold
-set gfn=Menlo\ Regular:h12
+" set gfn=Menlo\ Regular:h12
 " set gfn=Inconsolata\ Medium\ 12
 " set gfn=Monaco:h12
 
@@ -38,6 +39,9 @@ set backupdir=~/vim_backup
 set directory=~/vim_backup
 set backspace=indent,eol,start
 set nolazyredraw 
+set clipboard=unnamed
+
+set tags=./tags;
 " 
  " enable MAN page
 " had to comment out `let $MANPAGER = ""` in `VIMRUNTIME/ftplugin/man.vim
@@ -47,6 +51,10 @@ nmap K :Man <cword><CR>
  
  " PLUGINS
  " =======
+ "
+" Surround 
+vmap s S
+ 
  
  " Ack
  set grepprg=ack
@@ -74,9 +82,9 @@ nmap K :Man <cword><CR>
  "CTRLP 
  " =============
  let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
- let g:ctrlp_working_path_mode = 2 " Smart path mode
- let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
- let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
+ " let g:ctrlp_working_path_mode = 2 " Smart path mode
+ " let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
+ " let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
  
  
  
