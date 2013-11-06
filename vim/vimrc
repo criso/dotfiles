@@ -190,24 +190,31 @@ vmap s S
  " COLORS
  " ======
 " Alteration to github scheme 
-colorscheme github
-hi Normal guibg=MacTextBackgroundColor
-hi CursorLine   guibg=#F1F5FA
-" hi Search       guibg=reverse
-hi IncSearch    gui=reverse
-hi Pmenu        guibg=LightSteelBlue1
-hi PmenuSbar    guibg=Grey
-hi PmenuSel     guifg=White guibg=SkyBlue4
-hi PmenuThumb   gui=reverse
+" colorscheme github
+" hi Normal guibg=MacTextBackgroundColor
+" hi CursorLine   guibg=#F1F5FA
+" hi IncSearch    gui=reverse
+" hi Pmenu        guibg=LightSteelBlue1
+" hi PmenuSbar    guibg=Grey
+" hi PmenuSel     guifg=White guibg=SkyBlue4
+" hi PmenuThumb   gui=reverse
 
  "set background=light
  "colorscheme solarized
  
  "set t_Co=256
- " colorscheme molokai
- " hi Label cterm=bold,underline
- " hi Normal ctermfg=256
- " hi String ctermfg=185
+ "============== MOLOKAI settings
+ colorscheme molokai
+let s:molokai_original=1
+hi IncSearch guibg=cyan guifg=#000 gui=bold
+hi Search guibg=cyan guifg=#000 gui=bold
+hi Visual guibg=cyan guifg=#000 gui=bold
+" hi Label gui=bold,underline
+hi Label gui=bold
+hi Comment guifg=#75715E
+set cursorline
+
+
  "
  if has("gui_running")
    if has("autocmd")
