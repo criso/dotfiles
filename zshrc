@@ -1,9 +1,21 @@
 #!/bin/zsh
 
-source ~/.profile
-source /etc/profile.d/autojump.zsh
+ZSH=$HOME/.oh-my-zsh
 
-fpath=(~/local/dotfiles/zsh-completions/src $fpath)
+
+plugins=(git mvn svn brew npm)
+
+source $ZSH/oh-my-zsh.sh
+
+source ~/.profile
+# fpath=(~/local/dotfiles/zsh-completions/src $fpath)
+# source ~/local/dotfiles/zsh-completions/src
+
+# [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
+
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
+# [[ -s ~/local/maven-antsy-color/mvn ]] && source ~/local/maven-antsy-color/mvn
 
 
 setopt NO_BG_NICE
@@ -23,20 +35,23 @@ setopt HIST_REDUCE_BLANKS
 setopt EXTENDEDGLOB
 
 
+
 #
 # Includes
 #
-# autoload colors && colors
 autoload -Uz vcs_info
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 autoload -U colors
 colors
 
 zmodload -a autocomplete
 zmodload -a complist
 
-# Set input mode to emacs 
-bindkey -e
+# Set input mode to vim 
+# bindkey -e
+bindkey -v
+bindkey -M viins '^[' vi-cmd-mode
+
 
 # Bind <C-r> to history search
 bindkey "^r" history-incremental-search-backward
@@ -47,18 +62,6 @@ bindkey "^r" history-incremental-search-backward
 
 zstyle -e ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle -e ':completion:*' list-colors 'reply=( "=(#b)(*$PREFIX)(?)*=00=$color[green]=$color[bold]" )'
-
-# highlights='${PREFIX:+=(#bi)($PREFIX:t)(?)*==$color[red]=$color[green];$color[bold]}':${(s.:.)LS_COLORS}}
-# 
-# zstyle -e ':completion:*' list-colors \
-# 	'reply=( "'$highlights'" )'
-
-
-# zstyle -e ':completion:*:*:*:*:hosts' list-colors '=*=30;41'
-# zstyle -e ':completion:*:*:*:*:users' list-colors '=*=$color[green]=$color[red]'
-
-#<-- For when you get sick and tired of all the colors and just want them to go away!
-# zstyle ':completion:*' list-colors '' 
 
 #
 # Aliases
@@ -74,21 +77,17 @@ alias gadd='git add'
 alias gim='git commit -m'
 alias c='git commit'
 
-if [[ $(uname) = 'Darwin' ]]; then
-  alias l='ls -alAghp'
-  alias ls='ls -p'
-else
-  alias l='ls -alAGhp --color=always'
-  alias ls='ls -p --color=always'
-fi
 alias ..='cd ..'
 
+# alias ls='ls --color'
+alias ls="gls -p --color=auto --group-directories-first"
+
 # other
-alias vi='vim'
-alias e='vim'
-alias chrome='chromium-browser'
+alias vi='mvim -g'
+alias e='mvim -g'
+alias vim='mvim -g'
 alias pdf='mupdf'
-alias -g ack='ack-grep -ia'
+alias -g ack='ack -i'
 
 #
 # History
@@ -97,6 +96,14 @@ HISTFILE=~/.zsh_history
 HISTSIZE=5000
 SAVEHIST=1000
 REPORTTIME=10
+
+# timestamps for bash history. www.debian-administration.org/users/rossen/weblog/1
+# saved for later analysis
+HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT
+
+# Make some commands not show up in history
+export HISTIGNORE="ls:ls *:cd:cd -:pwd;exit:date:* --help"
 
 
 #
@@ -151,7 +158,21 @@ preexec () {
 # Set Prompts
 #
 PROMPT="%{$GREY%}%n%{$CLEAR%} %~ "'${vcs_info_msg_0_}${cursor}'" %{$CLEAR%}"
-RPROMPT='%{$BLUE%}%w %T %M%{$CLEAR%}'
+# RPROMPT='%{$BLUE%}%w %T %M%{$CLEAR%}'
 
+# EXPORTS
 
+# make vim default
+export EDITOR="mvim -f"
 
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+
+# export JAVA_HOME=$(/usr/libexec/java_home)
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
