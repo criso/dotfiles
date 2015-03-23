@@ -3,13 +3,14 @@
 ZSH=$HOME/.oh-my-zsh
 
 
-plugins=(git mvn svn brew npm)
+plugins=(npm git colored-man colorize mvn svn bower github jira vagrant python brew osx zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 source ~/.profile
-# fpath=(~/local/dotfiles/zsh-completions/src $fpath)
-# source ~/local/dotfiles/zsh-completions/src
+
+
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # [[ -s ~/.autojump/etc/profile.d/autojump.zsh ]] && source ~/.autojump/etc/profile.d/autojump.zsh
 
@@ -17,6 +18,8 @@ source ~/.profile
 
 # [[ -s ~/local/maven-antsy-color/mvn ]] && source ~/local/maven-antsy-color/mvn
 
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh
 
 setopt NO_BG_NICE
 setopt NO_HUP
@@ -77,6 +80,8 @@ alias gadd='git add'
 alias gim='git commit -m'
 alias c='git commit'
 
+alias gg='noglob gg'
+
 alias ..='cd ..'
 
 # alias ls='ls --color'
@@ -87,7 +92,7 @@ alias vi='mvim -g'
 alias e='mvim -g'
 alias vim='mvim -g'
 alias pdf='mupdf'
-alias -g ack='ack -i'
+# alias -g ack='ack -i'
 
 #
 # History
@@ -157,8 +162,9 @@ preexec () {
 #
 # Set Prompts
 #
-PROMPT="%{$GREY%}%n%{$CLEAR%} %~ "'${vcs_info_msg_0_}${cursor}'" %{$CLEAR%}"
-# RPROMPT='%{$BLUE%}%w %T %M%{$CLEAR%}'
+#criso ~/Development/mobile/awd (master) %
+PROMPT="%{$GREY%}%n%{$CLEAR%} %~ "'${vcs_info_msg_0_}${cursor}'" 
+→ %{$CLEAR%}"
 
 # EXPORTS
 
@@ -168,11 +174,24 @@ export EDITOR="mvim -f"
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
 export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 
 # export JAVA_HOME=$(/usr/libexec/java_home)
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+
+# launchctl limit maxfiles 2048 2048 && ulimit -n 2048
+
+export _JAVA_OPTIONS="-Xms3072m -Xmx3072m"	
+
+
+
+# location for screen grabs
+defaults write com.apple.screencapture location ~/Desktop/screenies
+defaults write com.apple.screencapture type jpg
+killall SystemUIServer
+
+
+

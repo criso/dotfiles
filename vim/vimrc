@@ -14,8 +14,9 @@ set title               " change the terminal's title
 set encoding=utf-8 nobomb
 "set gfn=Inconsolata:h14
 " powerline with fancy symobls font
-" set gfn=Inconsolata-dz\ for\ Powerline:h12
-set gfn=Source\ Code\ Pro\ for\ Powerline:h13
+" set gfn=Inconsolata-g\ for\ Powerline:h13
+set gfn=Literation\ Mono\ Powerline:h14
+" set gfn=Source\ Code\ Pro\ for\ Powerline:h13
 " // font that  allows bold
 " set gfn=Menlo\ Regular:h12
 " set gfn=Inconsolata\ Medium\ 12
@@ -64,7 +65,7 @@ vmap s S
  let g:syntastic_enable_signs=1 "Show sidebar signs
  let g:syntastic_auto_loc_list=1 "auto open errors window
  let g:syntastic_disabled_filetypes = ['scss','eruby']
- let g:syntastic_javascript_jshint_conf = "~/.jshintrc"
+ let g:syntastic_javascript_jshint_args = "--config ~/.jshintrc"
  
  " C prog
  " =====
@@ -76,8 +77,9 @@ vmap s S
  " Setup supertab to be a bit smarter about it's usage
  let g:SuperTabLongestEnhanced = 1
  
- " Powerline
- let g:Powerline_symbols = 'fancy'
+ " vim-airline
+ let g:airline_powerline_fonts = 1
+
  
  "CTRLP 
  " =============
@@ -205,13 +207,14 @@ vmap s S
  "set t_Co=256
  "============== MOLOKAI settings
  colorscheme molokai
-let s:molokai_original=1
+" let s:molokai_original=1
 hi IncSearch guibg=cyan guifg=#000 gui=bold
 hi Search guibg=cyan guifg=#000 gui=bold
 hi Visual guibg=cyan guifg=#000 gui=bold
 " hi Label gui=bold,underline
 hi Label gui=bold
-hi Comment guifg=#75715E
+" hi Comment guifg=#75715E
+hi Comment guifg=#7f9f7f    
 set cursorline
 
 

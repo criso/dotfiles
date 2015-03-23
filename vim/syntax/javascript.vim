@@ -79,7 +79,7 @@ syntax keyword javaScriptRepeat         do while for
 syntax keyword javaScriptBranch         break continue switch case default return
 syntax keyword javaScriptStatement      try catch throw with finally
 
-syntax keyword javaScriptGlobalObjects  Array Boolean Date Function Infinity JavaArray JavaClass JavaObject JavaPackage Math Number NaN Object Packages RegExp String Undefined java netscape sun
+syntax keyword javaScriptGlobalObjects  Array Boolean Date Function Infinity JavaArray JavaClass JavaObject JavaPackage Math Number NaN Object Packages RegExp String Undefined java netscape sun self
 
 syntax keyword javaScriptExceptions     Error EvalError RangeError ReferenceError SyntaxError TypeError URIError
 
@@ -103,7 +103,7 @@ syntax keyword javaScriptFutureKeys     abstract enum int short boolean export i
 " Follow stuff should be highligh within a special context
 " While it can't be handled with context depended with Regex based highlight
 " So, turn it off by default
-if exists("javascript_enable_domhtmlcss")
+" if exists("javascript_enable_domhtmlcss")
 
     " DOM2 things
     syntax match javaScriptDomElemAttrs     contained /\%(nodeName\|nodeValue\|nodeType\|parentNode\|childNodes\|firstChild\|lastChild\|previousSibling\|nextSibling\|attributes\|ownerDocument\|namespaceURI\|prefix\|localName\|tagName\)\>/
@@ -129,7 +129,7 @@ if exists("javascript_enable_domhtmlcss")
     syntax match javaScriptDotNotation      "\." nextgroup=javaScriptPrototype,javaScriptDomElemAttrs,javaScriptDomElemFuncs,javaScriptHtmlElemAttrs,javaScriptHtmlElemFuncs
     syntax match javaScriptDotNotation      "\.style\." nextgroup=javaScriptCssStyles
 
-endif "DOM/HTML/CSS
+" endif "DOM/HTML/CSS
 
 "" end DOM/HTML/CSS specified things
 

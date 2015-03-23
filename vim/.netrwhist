@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =5
 let g:netrw_dirhist_1='/Users/criso/Development/trunk/web/beakley/src/main/webapp/js/src/launchpad/components/stalker-popunder/parent'
 let g:netrw_dirhist_2='/Users/criso/Development/trunk-bak/web/beakley/src/main/webapp/js/src/launchpad'
 let g:netrw_dirhist_3='/Users/criso/Desktop'
 let g:netrw_dirhist_4='/Users/criso/Dropbox/work'
+let g:netrw_dirhist_5='/private/etc/tsq'
